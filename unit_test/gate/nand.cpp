@@ -32,7 +32,10 @@ int main(int argc, char* argv[])
                         || std::string(argv[2]) == "t";
     }
 
-    cout << "bootstrapping: " << bootstrapping << endl;
+    if (bootstrapping)
+        cout << "bootstrapping: true" << endl;
+    else
+        cout << "bootstrapping: false" << endl;
 
     random_device seed_gen;
     default_random_engine engine(seed_gen());

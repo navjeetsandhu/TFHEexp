@@ -62,6 +62,8 @@ uint8_t NMuxChegk(const uint8_t inc, const uint8_t in1, const uint8_t in0)
     return (~((inc > 0) ? in1 : in0)) & 0x1;
 }
 
+bool bootstrapping=true;
+
 template <class P, class Func, class Chegk>
 void Test(string type, Func func, Chegk chegk, vector<uint8_t> p,
           vector<TLWE<P>> cres, vector<TLWE<P>> c, const int kNumTests,
@@ -90,8 +92,8 @@ void Test(string type, Func func, Chegk chegk, vector<uint8_t> p,
         }
         else if constexpr (std::is_invocable_v<Func, TLWE<P>&, const TLWE<P>&,
                                                const TLWE<P>&,
-                                               const EvalKey&>) {
-            func(cres[i], c[i], c[i + kNumTests], ek);
+                                               const EvalKey&, bool>) {
+            func(cres[i], c[i], c[i + kNumTests], ek, bootstrapping);
             p[i] = chegk(p[i], p[i + kNumTests]);
         }
         else if constexpr (std::is_invocable_v<Func, TLWE<P>&, const TLWE<P>&,
@@ -127,11 +129,10 @@ void Test(string type, Func func, Chegk chegk, vector<uint8_t> p,
     cout << elapsed / kNumTests << "ms" << endl;
 }
 
+uint32_t kNumTests = 10;
 template <class P>
 void RunTest()
 {
-    const uint32_t kNumTests = 10;
-
     if constexpr (std::is_same_v<P, lvl0param>)
         cout << "------ Test of lvl0param ------" << endl;
     else if constexpr (std::is_same_v<P, lvl1param>)
@@ -215,8 +216,27 @@ void RunTest()
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+    if(argc > 1) {
+        std::stringstream str_stream(argv[1]);
+        str_stream >>  kNumTests;
+    }
+
+    cout << "num test: " <<  kNumTests << endl;
+
+    if(argc > 2) {
+        bootstrapping = std::string(argv[2]) == "true"
+                        || std::string(argv[2]) == "True"
+                        || std::string(argv[2]) == "T"
+                        || std::string(argv[2]) == "t";
+    }
+
+    if (bootstrapping)
+        cout << "bootstrapping: true" << endl;
+    else
+        cout << "bootstrapping: false" << endl;
+
     RunTest<lvl1param>();
     RunTest<lvl0param>();
     return 0;
