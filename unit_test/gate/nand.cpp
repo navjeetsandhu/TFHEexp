@@ -13,6 +13,7 @@ using namespace TFHEpp;
 int main(int argc, char* argv[])
 {
     uint32_t num_test = 10;
+    bool bootstrapping=true;
     for(int i = 0; i < argc; i++) {
         std::cout << "Argument " << i << " is " << argv[i] << std::endl;
     }
@@ -23,6 +24,15 @@ int main(int argc, char* argv[])
     }
 
     cout << "num test: " << num_test << endl;
+
+    if(argc > 2) {
+        bootstrapping = std::string(argv[2]) == "true"
+                        || std::string(argv[2]) == "True"
+                        || std::string(argv[2]) == "T"
+                        || std::string(argv[2]) == "t";
+    }
+
+    cout << "bootstrapping: " << bootstrapping << endl;
 
     random_device seed_gen;
     default_random_engine engine(seed_gen());
@@ -49,7 +59,7 @@ int main(int argc, char* argv[])
     start = chrono::system_clock::now();
 
     for (int test = 0; test < num_test; test++) {
-        HomNAND(cres[test], ca[test], cb[test], ek);
+        HomNAND(cres[test], ca[test], cb[test], ek, bootstrapping);
     }
 
     end = chrono::system_clock::now();
@@ -62,5 +72,7 @@ int main(int argc, char* argv[])
     double elapsed =
         std::chrono::duration_cast<std::chrono::milliseconds>(end - start)
             .count();
-    cout << elapsed / num_test << "ms" << endl;
+
+    cout << "Total elapsed time: " << elapsed << "ms" << endl;
+    cout << "Time per test:      "<< elapsed / num_test << "ms" << endl;
 }

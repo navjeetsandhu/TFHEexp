@@ -9,24 +9,24 @@ template <class brP, typename brP::targetP::T mu, class iksP, int casign,
           int cbsign, std::make_signed_t<typename brP::domainP::T> offset>
 inline void HomGate(TLWE<typename iksP::targetP> &res,
                     const TLWE<typename brP::domainP> &ca,
-                    const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+                    const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
     for (int i = 0; i <= brP::domainP::k * brP::domainP::n; i++)
         res[i] = casign * ca[i] + cbsign * cb[i];
     res[brP::domainP::k * brP::domainP::n] += offset;
-    GateBootstrapping<brP, mu, iksP>(res, res, ek);
+    if(bootstrapping) GateBootstrapping<brP, mu, iksP>(res, res, ek);
 }
 
 template <class iksP, class brP, typename brP::targetP::T mu, int casign,
           int cbsign, std::make_signed_t<typename iksP::domainP::T> offset>
 inline void HomGate(TLWE<typename brP::targetP> &res,
                     const TLWE<typename iksP::domainP> &ca,
-                    const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+                    const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
     for (int i = 0; i <= iksP::domainP::k * iksP::domainP::n; i++)
         res[i] = casign * ca[i] + cbsign * cb[i];
     res[iksP::domainP::k * iksP::domainP::n] += offset;
-    GateBootstrapping<iksP, brP, mu>(res, res, ek);
+    if(bootstrapping) GateBootstrapping<iksP, brP, mu>(res, res, ek);
 }
 
 // No input
@@ -61,18 +61,18 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomNAND(TLWE<typename iksP::targetP> &res,
              const TLWE<typename brP::domainP> &ca,
-             const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, -1, -1, brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, -1, -1, brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomNAND(TLWE<typename brP::targetP> &res,
              const TLWE<typename iksP::domainP> &ca,
-             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, -1, -1, iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, -1, -1, iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
