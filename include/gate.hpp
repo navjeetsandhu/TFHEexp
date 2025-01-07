@@ -80,17 +80,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomNOR(TLWE<typename iksP::targetP> &res,
             const TLWE<typename brP::domainP> &ca,
-            const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+            const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, -1, -1, -brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, -1, -1, -brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomNOR(TLWE<typename brP::targetP> &res,
             const TLWE<typename iksP::domainP> &ca,
-            const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+            const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, -1, -1, -iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, -1, -1, -iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -98,18 +98,18 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomXNOR(TLWE<typename iksP::targetP> &res,
              const TLWE<typename brP::domainP> &ca,
-             const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, -2, -2, -2 * brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, -2, -2, -2 * brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomXNOR(TLWE<typename brP::targetP> &res,
              const TLWE<typename iksP::domainP> &ca,
-             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, -2, -2, -2 * iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, -2, -2, -2 * iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -117,17 +117,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomAND(TLWE<typename iksP::targetP> &res,
             const TLWE<typename brP::domainP> &ca,
-            const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+            const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, 1, 1, -brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, 1, 1, -brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomAND(TLWE<typename brP::targetP> &res,
             const TLWE<typename iksP::domainP> &ca,
-            const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+            const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, 1, 1, -iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, 1, 1, -iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -135,17 +135,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomOR(TLWE<typename iksP::targetP> &res,
            const TLWE<typename brP::domainP> &ca,
-           const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+           const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, 1, 1, brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, 1, 1, brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomOR(TLWE<typename brP::targetP> &res,
            const TLWE<typename iksP::domainP> &ca,
-           const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+           const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, 1, 1, iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, 1, 1, iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -153,17 +153,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomXOR(TLWE<typename iksP::targetP> &res,
             const TLWE<typename brP::domainP> &ca,
-            const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+            const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, 2, 2, 2 * brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, 2, 2, 2 * brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomXOR(TLWE<typename brP::targetP> &res,
             const TLWE<typename iksP::domainP> &ca,
-            const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+            const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, 2, 2, 2 * iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, 2, 2, 2 * iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -171,17 +171,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomANDNY(TLWE<typename iksP::targetP> &res,
               const TLWE<typename brP::domainP> &ca,
-              const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+              const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, -1, 1, -brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, -1, 1, -brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomANDNY(TLWE<typename brP::targetP> &res,
               const TLWE<typename iksP::domainP> &ca,
-              const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+              const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, -1, 1, -iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, -1, 1, -iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -189,17 +189,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomANDYN(TLWE<typename iksP::targetP> &res,
               const TLWE<typename brP::domainP> &ca,
-              const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+              const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, 1, -1, -brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, 1, -1, -brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomANDYN(TLWE<typename brP::targetP> &res,
               const TLWE<typename iksP::domainP> &ca,
-              const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+              const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, 1, -1, -iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, 1, -1, -iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -207,17 +207,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomORNY(TLWE<typename iksP::targetP> &res,
              const TLWE<typename brP::domainP> &ca,
-             const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, -1, 1, brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, -1, 1, brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomORNY(TLWE<typename brP::targetP> &res,
              const TLWE<typename iksP::domainP> &ca,
-             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, -1, 1, iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, -1, 1, iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -225,17 +225,17 @@ template <class brP = lvl01param, typename brP::targetP::T mu = lvl1param::mu,
           class iksP = lvl10param>
 void HomORYN(TLWE<typename iksP::targetP> &res,
              const TLWE<typename brP::domainP> &ca,
-             const TLWE<typename brP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename brP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<brP, mu, iksP, 1, -1, brP::domainP::mu>(res, ca, cb, ek);
+    HomGate<brP, mu, iksP, 1, -1, brP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 template <class iksP = lvl10param, class brP = lvl01param,
           typename brP::targetP::T mu = lvl1param::mu>
 void HomORYN(TLWE<typename brP::targetP> &res,
              const TLWE<typename iksP::domainP> &ca,
-             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek)
+             const TLWE<typename iksP::domainP> &cb, const EvalKey &ek, bool bootstrapping=true)
 {
-    HomGate<iksP, brP, mu, 1, -1, iksP::domainP::mu>(res, ca, cb, ek);
+    HomGate<iksP, brP, mu, 1, -1, iksP::domainP::mu>(res, ca, cb, ek, bootstrapping);
 }
 
 
@@ -282,7 +282,6 @@ void HomNMUX(TLWE<P> &res, const TLWE<P> &cs, const TLWE<P> &c1,
     HomMUX<P>(res, cs, c1, c0, ek);
     for (int i = 0; i <= P::k * P::n; i++) res[i] = -res[i];
 }
-
 
 
 template <class bkP>
