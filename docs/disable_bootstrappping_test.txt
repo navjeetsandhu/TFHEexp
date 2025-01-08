@@ -1,3 +1,5 @@
+These tests are done using SPQLIOS FFT library.
+
 nsandhu@Navjeets-MacBook-Pro gate % ./gate 10000 f
 num test: 10000
 bootstrapping: false
