@@ -172,10 +172,12 @@ void RunTest()
                 XorChegk, p, cres, c, kNumTests, *sk, ek);
         Test<P>("XNOR", TFHEpp::HomXNOR<lvl01param, lvl1param::mu, lvl10param>,
                 XnorChegk, p, cres, c, kNumTests, *sk, ek);
-        Test<P>("MUX", TFHEpp::HomMUX<P>, MuxChegk, p, cres, c, kNumTests, *sk,
-                ek);
-        Test<P>("NMUX", TFHEpp::HomNMUX<P>, NMuxChegk, p, cres, c, kNumTests,
-                *sk, ek);
+        if(bootstrapping==true) {
+            Test<P>("MUX", TFHEpp::HomMUX<P>, MuxChegk, p, cres, c, kNumTests,
+                    *sk, ek);
+            Test<P>("NMUX", TFHEpp::HomNMUX<P>, NMuxChegk, p, cres, c,
+                    kNumTests, *sk, ek);
+        }
         Test<P>("ConstantZero", TFHEpp::HomCONSTANTZERO<P>, ConstantZeroChegk,
                 p, cres, c, kNumTests, *sk, ek);
         Test<P>("ConstantOne", TFHEpp::HomCONSTANTONE<P>, ConstantOneChegk, p,
@@ -205,10 +207,12 @@ void RunTest()
                 XorChegk, p, cres, c, kNumTests, *sk, ek);
         Test<P>("XNOR", TFHEpp::HomXNOR<lvl10param, lvl01param, lvl1param::mu>,
                 XnorChegk, p, cres, c, kNumTests, *sk, ek);
-        Test<P>("MUX", TFHEpp::HomMUX<P>, MuxChegk, p, cres, c, kNumTests, *sk,
-                ek);
-        Test<P>("NMUX", TFHEpp::HomNMUX<P>, NMuxChegk, p, cres, c, kNumTests,
-                *sk, ek);
+        if(bootstrapping==true) {
+            Test<P>("MUX", TFHEpp::HomMUX<P>, MuxChegk, p, cres, c, kNumTests,
+                    *sk, ek);
+            Test<P>("NMUX", TFHEpp::HomNMUX<P>, NMuxChegk, p, cres, c,
+                    kNumTests, *sk, ek);
+        }
         Test<P>("ConstantZero", TFHEpp::HomCONSTANTZERO<P>, ConstantZeroChegk,
                 p, cres, c, kNumTests, *sk, ek);
         Test<P>("ConstantOne", TFHEpp::HomCONSTANTONE<P>, ConstantOneChegk, p,

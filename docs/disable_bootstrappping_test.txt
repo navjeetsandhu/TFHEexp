@@ -1,0 +1,245 @@
+nsandhu@Navjeets-MacBook-Pro gate % ./gate 10000 f
+num test: 10000
+bootstrapping: false
+------ Test of lvl1param ------
+------ Key Generation ------
+lvl1param
+------ Test NOT Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test COPY Gate ------
+Number of tests:	10000
+Passed
+0.0005ms
+------ Test NAND Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test OR Gate ------
+Number of tests:	10000
+Passed
+0.0008ms
+------ Test ORYN Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test ORNY Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test AND Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test ANDYN Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test ANDNY Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test XOR Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test XNOR Gate ------
+Number of tests:	10000
+Passed
+0.0007ms
+------ Test ConstantZero Gate ------
+Number of tests:	10000
+Passed
+0.0003ms
+------ Test ConstantOne Gate ------
+Number of tests:	10000
+Passed
+0.0003ms
+------ Test of lvl0param ------
+------ Key Generation ------
+lvl0param
+------ Test NOT Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test COPY Gate ------
+Number of tests:	10000
+Passed
+0.0001ms
+------ Test NAND Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test OR Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test ORYN Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test ORNY Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test AND Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test ANDYN Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test ANDNY Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test XOR Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test XNOR Gate ------
+Number of tests:	10000
+Passed
+0.0002ms
+------ Test ConstantZero Gate ------
+Number of tests:	10000
+Passed
+0.0001ms
+------ Test ConstantOne Gate ------
+Number of tests:	10000
+Passed
+0.0001ms
+nsandhu@Navjeets-MacBook-Pro gate %
+nsandhu@Navjeets-MacBook-Pro gate %
+nsandhu@Navjeets-MacBook-Pro gate %
+nsandhu@Navjeets-MacBook-Pro gate % ./gate 10 t
+num test: 10
+bootstrapping: true
+------ Test of lvl1param ------
+------ Key Generation ------
+lvl1param
+------ Test NOT Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test COPY Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test NAND Gate ------
+Number of tests:	10
+Passed
+19.3ms
+------ Test OR Gate ------
+Number of tests:	10
+Passed
+19.9ms
+------ Test ORYN Gate ------
+Number of tests:	10
+Passed
+18.9ms
+------ Test ORNY Gate ------
+Number of tests:	10
+Passed
+19ms
+------ Test AND Gate ------
+Number of tests:	10
+Passed
+18.9ms
+------ Test ANDYN Gate ------
+Number of tests:	10
+Passed
+18.9ms
+------ Test ANDNY Gate ------
+Number of tests:	10
+Passed
+18.6ms
+------ Test XOR Gate ------
+Number of tests:	10
+Passed
+18.7ms
+------ Test XNOR Gate ------
+Number of tests:	10
+Passed
+18.3ms
+------ Test MUX Gate ------
+Number of tests:	10
+Passed
+36.6ms
+------ Test NMUX Gate ------
+Number of tests:	10
+Passed
+35.7ms
+------ Test ConstantZero Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test ConstantOne Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test of lvl0param ------
+------ Key Generation ------
+lvl0param
+------ Test NOT Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test COPY Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test NAND Gate ------
+Number of tests:	10
+Passed
+17.4ms
+------ Test OR Gate ------
+Number of tests:	10
+Passed
+18.3ms
+------ Test ORYN Gate ------
+Number of tests:	10
+Passed
+18.6ms
+------ Test ORNY Gate ------
+Number of tests:	10
+Passed
+18.5ms
+------ Test AND Gate ------
+Number of tests:	10
+Passed
+18.5ms
+------ Test ANDYN Gate ------
+Number of tests:	10
+Passed
+18.4ms
+------ Test ANDNY Gate ------
+Number of tests:	10
+Passed
+18.1ms
+------ Test XOR Gate ------
+Number of tests:	10
+Passed
+18.3ms
+------ Test XNOR Gate ------
+Number of tests:	10
+Passed
+18.6ms
+------ Test MUX Gate ------
+Number of tests:	10
+Passed
+33.8ms
+------ Test NMUX Gate ------
+Number of tests:	10
+Passed
+33.5ms
+------ Test ConstantZero Gate ------
+Number of tests:	10
+Passed
+0ms
+------ Test ConstantOne Gate ------
+Number of tests:	10
+Passed
+0ms
